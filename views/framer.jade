@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-12
+        h1 Framer Dashboard
+        p This page calls the List Plans API, passing only the vendor_auth_code and vendor_id
+          br
+          a(target="_blank" href="https://paddle.com/docs/api-list-plans/") https://paddle.com/docs/api-list-plans/
+    .row
+      .col-12
+        .card.card-body
+          table.table
+            thead
+              tr
+                th(scope='col') Plan ID
+                th(scope='col') Plan Name
+                th(scope='col') Billing Type
+                th(scope='col') Recurring Price
+                th(scope='col') See Subscribers
+            tbody
+              each plan in plans
+                tr
+                  th(scope='row')= plan.id
+                  td= plan.name
+                  td= plan.billing_type
+                  td= plan.recurring_price.USD
+                  td
+                    a(href="/framer/plan/" + plan.id) See subscribers
+            

@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-12
+        h1 Framer Subscribers
+        p This page calls the List Users API, passing the vendor_auth_code, vendor_id, and the plan ID from the URL.
+          br
+          a(target="_blank" href="https://paddle.com/docs/api-list-users/") https://paddle.com/docs/api-list-users/
+    .row
+      .col-12
+        .card.card-body
+          table.table
+            thead
+              tr
+                th(scope='col') Subscription ID
+                th(scope='col') Email
+                th(scope='col') State
+                th(scope='col') Next Payment
+                th(scope='col') New Contract Amount
+                th(scope='col') Submit
+            tbody
+              each user in users
+                tr
+                  th(scope='row')= user.subscription_id
+                  td= user.user_email
+                  td= user.state
+                  td= user.next_payment.date
+                  td
+                    input.form-control.form-control-sm(placeholder='Contract Price', name='contractPrice', type='text')
+                  td
+                    input.btn.btn-sm.btn-primary.btn-block(value='Submit', type='submit' onclick="alert('Call update API, passing in subscription ID and contract price for this row')")
+            
