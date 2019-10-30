@@ -12,7 +12,7 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "mongoose": "^5.2.7",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.0",
     "php-serialize": "^2.0.1",
     "stylus": "0.54.5"
